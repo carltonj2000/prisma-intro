@@ -1,8 +1,13 @@
 # Prisma Introduction
 
+Completed to 1hr9min min of video below.
+
 The code in this repository is based on the
 [A Practical Introduction to Prisma](https://youtu.be/tdiB-DjAnUk)
-video.
+video, uses the associated
+[workshop notes and quizzes](https://www.notion.so/A-Practical-Introduction-to-Prisma-2021-ccf00a066ef4432caeb03da179e38302).
+and has a
+[Starter code git repo](https://github.com/nikolasburk/prisma-workshop/tree/rest-api)
 
 ## Lesson 1: Setup, data modeling & migrations
 
@@ -12,12 +17,29 @@ npm i -D prisma ts-node typescript
 npm i @prisma/client
 vi .gitignore
 vi script.ts
-vi ./prisma/schema.prisma
+vi ./prisma/schema.prisma # create user model
 npx prisma migrate dev --name init
-npx prisma studio
+npx prisma studio # add user data
+vi ./prisma/schema.prisma # create post model
+npx prisma migrate dev --name add-post
+# below creates but does not run the migration
+npx prisma migrate dev --create-only
 ```
 
+User data below and Post data in the script.
+
+- 1, Tina, tina@a.b
+- 2, Carlton, carlton@a.b
+- 3, Cheryl, chery@a.b
+
 ## Lesson 2: Explore Prisma Client
+
+[Starter code git repo](https://github.com/nikolasburk/prisma-workshop/tree/rest-api)
+
+```bash
+# start same as lesson one then the following
+npx prisma db seed --preview-feature
+```
 
 ## Lesson 3: REST API
 
