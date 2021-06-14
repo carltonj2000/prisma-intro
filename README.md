@@ -44,3 +44,91 @@ npx prisma db seed --preview-feature
 ## Lesson 3: REST API
 
 ## Lesson 4: GraphQL API
+
+```graphql
+# graphql queries
+{
+  allUsers {
+    id
+    name
+    email
+    posts {
+      id
+      title
+    }
+  }
+}
+{
+  postById(id: 1) {
+    id
+    title
+    content
+    published
+    viewCount
+    author {
+      id
+      name
+      email
+    }
+  }
+}
+{
+  feed {
+    id
+    title
+    content
+    published
+    viewCount
+    author {
+      id
+      name
+      email
+    }
+  }
+}
+{
+  draftsByUser(id: 3) {
+    id
+    title
+    content
+    published
+    viewCount
+    author {
+      id
+      name
+      email
+    }
+  }
+}
+mutation {
+  signupUser(name: "Nikolas", email: "burk@prisma.io") {
+    id
+    posts {
+      id
+    }
+  }
+}
+mutation {
+  createDraft(title: "Hello World", authorEmail: "burk@prisma.io") {
+    id
+    published
+    viewCount
+    author {
+      id
+      email
+      name
+    }
+  }
+}
+mutation {
+  incrementPostViewCount(id: 1) {
+    id
+    viewCount
+  }
+}
+mutation {
+  deletePost(id: 1) {
+    id
+  }
+}
+```
